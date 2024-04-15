@@ -20,6 +20,8 @@
         const canvasEl = document.querySelector("canvas"), 
         canvasCtx = canvasEl.getContext("2d")
 
+        const lineWidth = 15 //Largura da linha (central)
+
         //propriedades de altura e largura
         function setup() {
             canvasEl.width = canvasCtx.width = window.innerWidth //pode ser feito dessa forma a sintaxe ou as duas linhas abaixo representa essa sintaxe
@@ -32,11 +34,22 @@
         }
 
         function draw(){
+
+            //Desenhando o campo
             canvasCtx.fillStyle = "#286047" //define a cor do campo
             canvasCtx.fillRect (0, 0, window.innerWidth, window.innerHeight)
             // 0,0 -> onde começa a ser desenhado o campo que é de cima pra baixo e da esquerda pra direita 
             //window.innerWidth -> pega toda a largura da tela
             //window.innerHeight -> pega toda a largura da tela
+
+            //desenhando a linha central
+            canvasCtx.fillStyle = "#ffffff"
+            const x = window.innerWidth / 2 - lineWidth / 2
+            const y = 0 //y -> ponto de inicio da linha
+            const w = lineWidth //Largura da linha
+            const h = window.innerHeight //Altura da linha
+
+            canvasCtx.fillRect (x, y, w, h)
         }
 
         setup()
