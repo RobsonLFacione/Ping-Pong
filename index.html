@@ -4,20 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jogo Ping-Pong</title>
+    <style> /*faz o preenchimento do campo que ficou em branco de todas as bordas
+             overfolow tira os scrolls de quando diminui a tela*/
+        *{ 
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
 </head>
 <body>
     <canvas></canvas>
-    <script>
+    
+    <script> 
         const canvasEl = document.querySelector("canvas"), 
         canvasCtx = canvasEl.getContext("2d")
 
+        //propriedades de altura e largura
         function setup() {
-            canvasEl.width = canvasCtx.width = window.innerWidth
-            canvasEl.height = canvasCtx.height = window.innerHeight
+            canvasEl.width = canvasCtx.width = window.innerWidth //pode ser feito dessa forma a sintaxe ou as duas linhas abaixo representa essa sintaxe
+            //canvesEl.width = canvasCtx.width
+            //canvasEl.width = window.innerWidth
+
+            canvasEl.height = canvasCtx.height = window.innerHeight  //pode ser feito dessa forma ou as duas linhas abaixo representa essa sintaxe
+            //canvasEl.height = cancasCtx.height
+            //canvasEl.eight = window.innerheight
         }
 
-        function draw(){}
+        function draw(){
+            canvasCtx.fillStyle = "#286047" //define a cor do campo
+            canvasCtx.fillRect (0, 0, window.innerWidth, window.innerHeight)
+            // 0,0 -> onde começa a ser desenhado o campo que é de cima pra baixo e da esquerda pra direita 
+            //window.innerWidth -> pega toda a largura da tela
+            //window.innerHeight -> pega toda a largura da tela
+        }
+
+        setup()
+        draw()
         
     </script>
 </body>
+
 </html>
+
+<!--no canvas é trabalhado cada sobre camada
+primeiro é definido a cor do objeto e depois é criado o objeto
+-->
